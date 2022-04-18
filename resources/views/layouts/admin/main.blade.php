@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="/admin/css/style.css">
     <!-- Modernize js -->
     <script src="/admin/js/modernizr-3.6.0.min.js"></script>
+
+    
 </head>
 
 <body>
@@ -412,12 +414,12 @@
             <div class="dashboard-content-one">
                 <!-- Breadcubs Area Start Here -->
                 <div class="breadcrumbs-area">
-                    <h3>Admin Dashboard</h3>
+                    <h3>@yield('title-dash')</h3>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{{route('home')}}">Home</a>
                         </li>
-                        <li>Admin</li>
+                        <li>@yield('sub-dash')</li>
                     </ul>
                 </div>
                 <!-- Breadcubs Area End Here -->
