@@ -54,7 +54,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a href="index.html" class="navbar-brand">Reve<span class="text-primary">Tive.</span></a>
+        <a href="{{route('site.index')}}" class="navbar-brand"><span class="text-primary">Eventos</span></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -63,23 +63,35 @@
         <div class="navbar-collapse collapse" id="navbarContent">
           <ul class="navbar-nav ml-auto pt-3 pt-lg-0">
             <li class="nav-item active">
-              <a href="index.html" class="nav-link">Home</a>
+              <a href="{{route('site.index')}}" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="about.html" class="nav-link">About</a>
+              <a href="{{route('site.about')}}" class="nav-link">Sobre</a>
             </li>
             <li class="nav-item">
-              <a href="services.html" class="nav-link">Services</a>
+              <a href="{{route('site.service')}}" class="nav-link">Serviços</a>
             </li>
             <li class="nav-item">
-              <a href="portfolio.html" class="nav-link">Projects</a>
+              <a href="{{route('site.projects')}}" class="nav-link">Projectos</a>
             </li>
             <li class="nav-item">
-              <a href="blog.html" class="nav-link">News</a>
+              <a href="{{route('site.news.all')}}" class="nav-link">Notícias</a>
             </li>
             <li class="nav-item">
-              <a href="contact.html" class="nav-link">Contact</a>
+              <a href="{{route('site.contact')}}" class="nav-link">Contactos</a>
             </li>
+
+            @if (Route::has('login'))
+                    @auth
+                    <li class="nav-item">
+                        <a href="{{ route('home') }}" class="nav-link">Area restrita</a>
+                    </li>
+             @else
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link">Entrar</a>
+                    </li>
+            @endif
+            @endif
           </ul>
         </div>
       </div> <!-- .container -->

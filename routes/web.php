@@ -18,8 +18,17 @@ use Illuminate\Support\Facades\Route;
   //  return view('welcome');
 //});
 Route::get('/', [App\Http\Controllers\Site\SiteHomeController::class, 'index'])->name('site.index');
+Route::get('/about', [App\Http\Controllers\Site\SiteAboutController::class, 'index'])->name('site.about');
+Route::get('/contact', [App\Http\Controllers\Site\SiteContactController::class, 'index'])->name('site.contact');
+Route::get('/news_all', [App\Http\Controllers\Site\SiteNewsController::class, 'index'])->name('site.news.all');
+Route::get('/news_single', [App\Http\Controllers\Site\SiteNewsController::class, 'single'])->name('site.single');
+Route::get('/project', [App\Http\Controllers\Site\SiteProjectsController::class, 'index'])->name('site.projects');
+Route::get('/service', [App\Http\Controllers\Site\SiteServicesController::class, 'index'])->name('site.service');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->middleware(['auth'])->group(function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
 
 
