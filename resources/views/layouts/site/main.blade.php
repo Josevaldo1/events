@@ -84,11 +84,14 @@
             @if (Route::has('login'))
                     @auth
                     <li class="nav-item">
-                        <a href="{{ route('home') }}" class="nav-link">Area restrita</a>
+                        <a href="{{ route('home') }}" class="nav-link">Área Restrita</a>
                     </li>
              @else
                     <li class="nav-item">
                         <a href="{{ route('login') }}" class="nav-link">Entrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('register') }}" class="nav-link">Cadastrar-se</a>
                     </li>
             @endif
             @endif

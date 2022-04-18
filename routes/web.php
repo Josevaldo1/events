@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,8 +27,9 @@ Route::get('/project', [App\Http\Controllers\Site\SiteProjectsController::class,
 Route::get('/service', [App\Http\Controllers\Site\SiteServicesController::class, 'index'])->name('site.service');
 Auth::routes();
 
-Route::prefix('admin')->middleware(['auth'])->group(function(){
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
+    Route::get('/home', [AdminHomeController::class, 'index'])->name('home');
+    
 });
 
 
