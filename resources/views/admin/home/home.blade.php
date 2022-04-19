@@ -18,7 +18,7 @@
                 <div class="col-6">
                     <div class="item-content">
                         <div class="item-title">Serviços</div>
-                        <div class="item-number"><span class="counter" data-num="150000">1,50,000</span></div>
+                        <div class="item-number"><span class="counter" data-num="{{$services->count()}}">{{$services->count()}}</span></div>
                     </div>
                 </div>
             </div>

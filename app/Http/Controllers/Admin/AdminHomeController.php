@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class AdminHomeController extends Controller
@@ -24,6 +25,7 @@ class AdminHomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home.home');
+        $services = Service::all();
+        return view('admin.home.home',compact('services'));
     }
 }

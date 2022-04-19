@@ -28,7 +28,7 @@
     <!-- Modernize js -->
     <script src="/admin/js/modernizr-3.6.0.min.js"></script>
 
-    
+
 </head>
 
 <body>
@@ -274,6 +274,19 @@
                                     class="flaticon-planet-earth"></i><span>Site</span></a>
                         </li>
                         <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Serviços</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('admin.service.index')}}" class="nav-link"><i class="fas fa-angle-right"></i>Listar Serviços</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('admin.service.create')}}" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>Cadastrar Serviços</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
                             <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
                             <ul class="nav sub-group-menu">
                                 <li class="nav-item">
@@ -433,7 +446,7 @@
 
                 <!-- Social Media End Here -->
                 <!-- Footer Area Start Here -->
-                <footer class="footer-wrap-layout1">
+                <footer class="footer-wrap-layout1 text-center">
                     <div class="copyright">© Copyrights <a href="#">Josevaldo Sicuba</a> 2022. All rights reserved. Designed by <a
                             href="#">Josevaldo Sicuba</a></div>
                 </footer>

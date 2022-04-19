@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AdminServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,10 @@ Auth::routes();
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/home', [AdminHomeController::class, 'index'])->name('home');
-    
+    Route::get('/service_index', [AdminServiceController::class, 'index'])->name('admin.service.index');
+    Route::get('/service_create', [AdminServiceController::class, 'create'])->name('admin.service.create');
+    Route::post('/service_create', [AdminServiceController::class, 'store'])->name('admin.service.save');
+
 });
 
 
