@@ -57,6 +57,9 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if ( $services->count() == 0)
+                        <strong>Não existem serviços disponíveis.</strong>
+                @else
                     @foreach ( $services as $service)
 
 
@@ -77,12 +80,11 @@
                                     <span class="flaticon-more-button-of-three-dots"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#"><i
-                                            class="fas fa-times text-orange-red"></i>Close</a>
-                                    <a class="dropdown-item" href="#"><i
-                                            class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
-                                    <a class="dropdown-item" href="#"><i
-                                            class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                                    <a class="dropdown-item" href="{{route('admin.service.destroy',$service->id)}}"><i
+                                            class="fas fa-times text-orange-red"></i> Eliminar</a>
+                                    <a class="dropdown-item" href="{{route('admin.service.edit', $service->id)}}"><i
+                                            class="fas fa-cogs text-dark-pastel-green"></i> Editar</a>
+
                                 </div>
                             </div>
                         </td>
@@ -90,7 +92,7 @@
 
                     @endforeach
 
-
+                    @endif
                 </tbody>
             </table>
         </div>

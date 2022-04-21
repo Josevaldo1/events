@@ -18,6 +18,7 @@ class CreateServicesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image');
+            $table->dateTime('deleted_at')->nullable();
             $table->timestamps();
         });
     }

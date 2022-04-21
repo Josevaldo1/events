@@ -1,14 +1,16 @@
 @extends('layouts.admin.main')
 @section('title','Criar Serviços')
 @section('title-dash','Serviços')
-@section('sub-dash','Cadastrar Serviços')
+@section('sub-dash','Editar Serviços')
 @section('content')
+<h2>Imagem actual</h2>
+                <img src="{{url("storage/{$service->image}")}}" alt="{{$service->title}}" style="width: 100%; height:200px;" class="img-fluid rounded">
 <!-- Admit Form Area Start Here -->
 <div class="card height-auto">
     <div class="card-body">
         <div class="heading-layout1">
             <div class="item-title">
-                <h3>Adicionar novos serviços</h3>
+                <h3>Editar serviços</h3>
             </div>
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -28,7 +30,8 @@
 
 
 
-        <form class="new-added-form" action="{{route('admin.service.save')}}" method="POST" enctype="multipart/form-data">
+        <form class="new-added-form" action="{{route('admin.service.update',$service->id)}}" method="POST" enctype="multipart/form-data">
+            @method('put')
             @if ($errors->any())
             <div class="alert alert-danger">
             <ul>
@@ -41,9 +44,10 @@
 
             @csrf
             <div class="row">
+
                 <div class="col-xl-3 col-lg-6 col-12 form-group">
                     <label>Titulo</label>
-                    <input type="text" placeholder="Titulo do serviço" class="form-control" name="title" value="{{old('title')}}">
+                    <input type="text" placeholder="Titulo do serviço" class="form-control" name="title" value="{{$service->title}}">
                 </div>
 
                 <div class="col-lg-6 col-12 form-group ">
@@ -54,7 +58,7 @@
                 <div class="col-lg-6 col-12 form-group">
                     <label>Descrição</label>
                     <textarea class="textarea form-control"  name="description" id="form-message" cols="10"
-                        rows="9" placeholder="Descrição do serviço" >{{old('description')}}</textarea>
+                        rows="9" placeholder="Descrição do serviço" >{{$service->description}}</textarea>
                 </div>
 
                 <div class="col-12 form-group mg-t-8">

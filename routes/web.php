@@ -33,7 +33,9 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/service_index', [AdminServiceController::class, 'index'])->name('admin.service.index');
     Route::get('/service_create', [AdminServiceController::class, 'create'])->name('admin.service.create');
     Route::post('/service_create', [AdminServiceController::class, 'store'])->name('admin.service.save');
-
+    Route::get('/service_destroy/{id}', [AdminServiceController::class, 'destroy'])->name('admin.service.destroy');
+    Route::get('/service_edit/{id}', [AdminServiceController::class, 'edit'])->name('admin.service.edit');
+    Route::put('/service_update/{id}', [AdminServiceController::class, 'update'])->name('admin.service.update');
 });
 
 
